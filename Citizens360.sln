@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.WPF", "Citizens360.WPF\Citizens360.WPF.csproj", "{EC2E319A-C514-4D07-91C5-3119D76ACC71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.App", "Citizens360.App\Citizens360.App.csproj", "{E7845CCE-9054-433A-BF29-49530C06849F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.Data", "Citizens360.Data\Citizens360.Data.csproj", "{44E918AF-9C12-47DE-A57C-0ED5EE186FFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC2E319A-C514-4D07-91C5-3119D76ACC71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC2E319A-C514-4D07-91C5-3119D76ACC71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC2E319A-C514-4D07-91C5-3119D76ACC71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC2E319A-C514-4D07-91C5-3119D76ACC71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7845CCE-9054-433A-BF29-49530C06849F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7845CCE-9054-433A-BF29-49530C06849F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7845CCE-9054-433A-BF29-49530C06849F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7845CCE-9054-433A-BF29-49530C06849F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E918AF-9C12-47DE-A57C-0ED5EE186FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E918AF-9C12-47DE-A57C-0ED5EE186FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E918AF-9C12-47DE-A57C-0ED5EE186FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E918AF-9C12-47DE-A57C-0ED5EE186FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
