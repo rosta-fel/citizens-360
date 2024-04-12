@@ -8,4 +8,19 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\I18n\LoginWindow.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>LoginWindow.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\I18n\LoginWindow.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>LoginWindow.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>
