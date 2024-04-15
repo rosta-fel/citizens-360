@@ -60,7 +60,7 @@ namespace Citizens360.WPF.Resources.I18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login to Citizens360.
+        ///   Looks up a localized string similar to Citizens360 - Log in.
         /// </summary>
         public static string Title {
             get {
