@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i18N="clr-namespace:Citizens360.WPF.Resources.I18n"
         mc:Ignorable="d"
-        Title="{x:Static i18N:LoginWindow.Title}" Height="450" Width="800">
-    <Grid>
-
+        Title="{x:Static i18N:LoginWindow.Title}"
+        Width="550" Height="350" WindowStyle="None">
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
     </Grid>
 </Window>
