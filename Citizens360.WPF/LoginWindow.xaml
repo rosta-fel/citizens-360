@@ -6,12 +6,15 @@
         xmlns:i18N="clr-namespace:Citizens360.WPF.Resources.I18n"
         mc:Ignorable="d"
         Title="{x:Static i18N:LoginWindow.Title}"
-        Width="550" Height="350" WindowStyle="None" 
+        Width="550" Height="350" WindowStyle="None"
         WindowStartupLocation="CenterScreen">
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
+        <Image Grid.Column="0"
+               Source="Resources/Images/Windows/Login/login-window-vector-illustration.jpg" />
     </Grid>
 </Window>
