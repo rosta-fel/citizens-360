@@ -23,4 +23,11 @@
       </Compile>
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Resources\Images\Windows\Login\login-window-vector-illustration.jpg" />
+      <Content Include="Resources\Images\Windows\Login\login-window-vector-illustration.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
 </Project>
