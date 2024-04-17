@@ -18,5 +18,26 @@
 
         <Image Grid.Column="0"
                Source="Resources/Images/Windows/Login/login-window-vector-illustration.jpg" />
+
+        <DockPanel Grid.Column="1">
+            <StackPanel DockPanel.Dock="Top" Height="50" MouseDown="TopStackPanel_OnMouseDown"
+                        Background="Transparent">
+
+                <WrapPanel Margin="5" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <ui:Button Click="ModeSwitcherButton_OnClick" Padding="4">
+                        <ui:Button.Icon>
+                            <ui:SymbolIcon Name="SunnySymbolIcon" Symbol="WeatherSunny24" Filled="True" />
+                        </ui:Button.Icon>
+                    </ui:Button>
+                    <ui:Button Margin="5 0" Click="HideWindowButton_OnClick" Padding="4">
+                        <ui:Button.Icon>
+                            <ui:SymbolIcon Symbol="LineHorizontal120" Filled="True" />
+                        </ui:Button.Icon>
+                    </ui:Button>
+                    <ui:Button Click="CloseWindowButton_OnClick" Icon="{ui:SymbolIcon Dismiss12}" Padding="4" />
+                </WrapPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom" />
+        </DockPanel>
     </Grid>
 </Window>
