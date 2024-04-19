@@ -26,7 +26,7 @@
         <DockPanel Grid.Column="1">
             <StackPanel DockPanel.Dock="Top" Height="50" MouseDown="TopStackPanel_OnMouseDown"
                         Background="Transparent">
-                <WrapPanel Margin="5" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <DockPanel Margin="5">
                     <ui:DropDownButton HorizontalAlignment="Left"
                                        Content="{x:Static i18N:LoginWindow.DropDownButtonContent}">
                         <ui:DropDownButton.Flyout>
@@ -38,21 +38,23 @@
                             </ContextMenu>
                         </ui:DropDownButton.Flyout>
                     </ui:DropDownButton>
-                    <ui:Button Click="ModeSwitcherButton_OnClick" Padding="4">
-                        <ui:Button.Icon>
-                            <ui:SymbolIcon Name="SunnySymbolIcon" Symbol="WeatherSunny24" />
-                        </ui:Button.Icon>
-                    </ui:Button>
-                    <StackPanel Margin="5 0 0 0" Orientation="Horizontal">
-                        <Separator Height="18" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <ui:Button Click="ModeSwitcherButton_OnClick" Padding="4">
+                            <ui:Button.Icon>
+                                <ui:SymbolIcon Name="SunnySymbolIcon" Symbol="WeatherSunny24" />
+                            </ui:Button.Icon>
+                        </ui:Button>
+                        <StackPanel Margin="5 0 0 0" Orientation="Horizontal">
+                            <Separator Height="18" />
+                        </StackPanel>
+                        <ui:Button Margin="5 0" Click="HideWindowButton_OnClick" Padding="4">
+                            <ui:Button.Icon>
+                                <ui:SymbolIcon Symbol="LineHorizontal120" Filled="True" />
+                            </ui:Button.Icon>
+                        </ui:Button>
+                        <ui:Button Click="CloseWindowButton_OnClick" Icon="{ui:SymbolIcon Dismiss12}" Padding="4" />
                     </StackPanel>
-                    <ui:Button Margin="5 0" Click="HideWindowButton_OnClick" Padding="4">
-                        <ui:Button.Icon>
-                            <ui:SymbolIcon Symbol="LineHorizontal120" Filled="True" />
-                        </ui:Button.Icon>
-                    </ui:Button>
-                    <ui:Button Click="CloseWindowButton_OnClick" Icon="{ui:SymbolIcon Dismiss12}" Padding="4" />
-                </WrapPanel>
+                </DockPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom">
                 <ui:TextBlock TextAlignment="Center" FontTypography="Subtitle"
