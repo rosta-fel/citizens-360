@@ -15,23 +15,7 @@ public partial class LoginWindow : Window
     {
         InitializeComponent();
     }
-
-    private void SetLanguage(string? language)
-    {
-        if(string.IsNullOrWhiteSpace(language)) return;
-        
-        CultureInfo culture = new(language);
-        Thread.CurrentThread.CurrentCulture = culture;
-        Thread.CurrentThread.CurrentUICulture = culture;
-        
-        foreach (UIElement element in LogicalTreeHelper.GetChildren(this).OfType<UIElement>())
-        {
-            element.InvalidateMeasure();
-            element.InvalidateArrange();
-            element.InvalidateVisual();
-        }
-    }
-
+    
     private void TopStackPanel_OnMouseDown(object sender, MouseButtonEventArgs e)
     {
         if (e.LeftButton == MouseButtonState.Pressed)
@@ -56,11 +40,11 @@ public partial class LoginWindow : Window
 
     private void MenuItemUS_OnClick(object sender, RoutedEventArgs e)
     {
-        SetLanguage(MenuItemUs.Tag.ToString());
+        // SetLanguage(MenuItemUs.Tag.ToString());
     }
 
     private void MenuItemCZ_OnClick(object sender, RoutedEventArgs e)
     {
-        SetLanguage(MenuItemCz.Tag.ToString());
+        // SetLanguage(MenuItemCz.Tag.ToString());
     }
 }
