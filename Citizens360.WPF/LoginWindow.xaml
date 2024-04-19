@@ -6,8 +6,8 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:i18N="clr-namespace:Citizens360.WPF.Resources.I18n"
         mc:Ignorable="d"
-        Title="{x:Static i18N:LoginWindow.Title}"
-        Width="550" Height="350" WindowStyle="None"
+        Title="{x:Static i18N:LoginWindow.WindowTitle}"
+        Width="550" Height="300" WindowStyle="None"
         ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
         ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
         Foreground="{DynamicResource TextFillColorPrimaryBrush}"
@@ -24,7 +24,7 @@
         </Grid>
 
         <DockPanel Grid.Column="1">
-            <StackPanel DockPanel.Dock="Top" Height="50" MouseDown="TopStackPanel_OnMouseDown"
+            <StackPanel DockPanel.Dock="Top" Height="45" MouseDown="TopStackPanel_OnMouseDown"
                         Background="Transparent">
                 <DockPanel Margin="5">
                     <ui:DropDownButton HorizontalAlignment="Left"
@@ -56,9 +56,15 @@
                     </StackPanel>
                 </DockPanel>
             </StackPanel>
-            <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom">
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ui:TextBlock TextAlignment="Center" FontTypography="Subtitle"
                               Text="{x:Static i18N:LoginWindow.ApplicationName}" />
+                <ui:TextBlock Margin="0 8" TextAlignment="Center" Text="{x:Static i18N:LoginWindow.WelcomeText}" />
+                <StackPanel Width="205">
+                    <ui:TextBox Margin="0 10" PlaceholderText="{x:Static i18N:LoginWindow.TextBoxUsername}" Icon="{ui:SymbolIcon Person12}"/>
+                    <ui:PasswordBox Margin="0 0 0 10" PlaceholderText="{x:Static i18N:LoginWindow.TextBoxPassword}" Icon="{ui:SymbolIcon Password24}"/>
+                    <ui:Button Width="205" Background="Cyan" Content="{x:Static i18N:LoginWindow.LogInButton}"></ui:Button>
+                </StackPanel>
             </StackPanel>
         </DockPanel>
     </Grid>
