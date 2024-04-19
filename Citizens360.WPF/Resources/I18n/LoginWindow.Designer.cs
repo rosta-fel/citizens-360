@@ -60,6 +60,42 @@ namespace Citizens360.WPF.Resources.I18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Citizens360.
+        /// </summary>
+        public static string ApplicationName {
+            get {
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string DropDownButtonContent {
+            get {
+                return ResourceManager.GetString("DropDownButtonContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Czech.
+        /// </summary>
+        public static string MenuItemCZ {
+            get {
+                return ResourceManager.GetString("MenuItemCZ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string MenuItemUS {
+            get {
+                return ResourceManager.GetString("MenuItemUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Citizens360 - Log in.
         /// </summary>
         public static string Title {

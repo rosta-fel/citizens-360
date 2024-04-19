@@ -27,6 +27,17 @@
             <StackPanel DockPanel.Dock="Top" Height="50" MouseDown="TopStackPanel_OnMouseDown"
                         Background="Transparent">
                 <WrapPanel Margin="5" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <ui:DropDownButton HorizontalAlignment="Left"
+                                       Content="{x:Static i18N:LoginWindow.DropDownButtonContent}">
+                        <ui:DropDownButton.Flyout>
+                            <ContextMenu>
+                                <MenuItem Name="MenuItemUs" Click="MenuItemUS_OnClick" Tag="en-US"
+                                          Header="{x:Static i18N:LoginWindow.MenuItemUS}" />
+                                <MenuItem Name="MenuItemCz" Click="MenuItemCZ_OnClick" Tag="cs-CZ"
+                                          Header="{x:Static i18N:LoginWindow.MenuItemCZ}" />
+                            </ContextMenu>
+                        </ui:DropDownButton.Flyout>
+                    </ui:DropDownButton>
                     <ui:Button Click="ModeSwitcherButton_OnClick" Padding="4">
                         <ui:Button.Icon>
                             <ui:SymbolIcon Name="SunnySymbolIcon" Symbol="WeatherSunny24" />
