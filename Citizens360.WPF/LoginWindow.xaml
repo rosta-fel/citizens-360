@@ -8,27 +8,33 @@
         mc:Ignorable="d"
         Title="{x:Static i18N:LoginWindow.Title}"
         Width="550" Height="350" WindowStyle="None"
+        ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+        ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="0"
-               Source="Resources/Images/Windows/Login/login-window-vector-illustration.jpg" />
+        <Grid Grid.Column="0" Background="White">
+            <Image Source="Resources/Images/Windows/Login/login-window-vector-illustration.jpg" />
+        </Grid>
 
         <DockPanel Grid.Column="1">
             <StackPanel DockPanel.Dock="Top" Height="50" MouseDown="TopStackPanel_OnMouseDown"
                         Background="Transparent">
-
                 <WrapPanel Margin="5" VerticalAlignment="Top" HorizontalAlignment="Right">
                     <ui:Button Click="ModeSwitcherButton_OnClick" Padding="4">
                         <ui:Button.Icon>
-                            <ui:SymbolIcon Name="SunnySymbolIcon" Symbol="WeatherSunny24" Filled="True" />
+                            <ui:SymbolIcon Name="SunnySymbolIcon" Symbol="WeatherSunny24" />
                         </ui:Button.Icon>
                     </ui:Button>
+                    <StackPanel Margin="5 0 0 0" Orientation="Horizontal">
+                        <Separator Height="18" />
+                    </StackPanel>
                     <ui:Button Margin="5 0" Click="HideWindowButton_OnClick" Padding="4">
                         <ui:Button.Icon>
                             <ui:SymbolIcon Symbol="LineHorizontal120" Filled="True" />
@@ -37,7 +43,10 @@
                     <ui:Button Click="CloseWindowButton_OnClick" Icon="{ui:SymbolIcon Dismiss12}" Padding="4" />
                 </WrapPanel>
             </StackPanel>
-            <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom" />
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom">
+                <ui:TextBlock TextAlignment="Center" FontTypography="Subtitle"
+                              Text="{x:Static i18N:LoginWindow.ApplicationName}" />
+            </StackPanel>
         </DockPanel>
     </Grid>
 </Window>
