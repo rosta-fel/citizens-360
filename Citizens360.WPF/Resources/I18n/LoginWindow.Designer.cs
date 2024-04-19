@@ -78,6 +78,15 @@ namespace Citizens360.WPF.Resources.I18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log In.
+        /// </summary>
+        public static string LogInButton {
+            get {
+                return ResourceManager.GetString("LogInButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Czech.
         /// </summary>
         public static string MenuItemCZ {
@@ -96,11 +105,38 @@ namespace Citizens360.WPF.Resources.I18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string TextBoxPassword {
+            get {
+                return ResourceManager.GetString("TextBoxPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string TextBoxUsername {
+            get {
+                return ResourceManager.GetString("TextBoxUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome! Log in to continue..
+        /// </summary>
+        public static string WelcomeText {
+            get {
+                return ResourceManager.GetString("WelcomeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Citizens360 - Log in.
         /// </summary>
-        public static string Title {
+        public static string WindowTitle {
             get {
-                return ResourceManager.GetString("Title", resourceCulture);
+                return ResourceManager.GetString("WindowTitle", resourceCulture);
             }
         }
     }
