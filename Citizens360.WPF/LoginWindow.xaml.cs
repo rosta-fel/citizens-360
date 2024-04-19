@@ -1,7 +1,5 @@
-﻿using System.Globalization;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Markup;
 using Wpf.Ui.Appearance;
 
 namespace Citizens360.WPF;
