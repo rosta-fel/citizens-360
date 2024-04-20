@@ -1,4 +1,4 @@
-﻿<Window x:Class="Citizens360.WPF.LoginWindow"
+﻿<Window x:Class="Citizens360.WPF.Views.LoginView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,13 +6,20 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:i18N="clr-namespace:Citizens360.WPF.Resources.I18n"
         mc:Ignorable="d"
-        Title="{x:Static i18N:LoginWindow.WindowTitle}"
         Width="550" Height="300" WindowStyle="None"
         ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
         ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
         Foreground="{DynamicResource TextFillColorPrimaryBrush}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
+    
+    <Window.Title>
+        <MultiBinding StringFormat="{}{0} - {1}">
+            <Binding Path="(i18N:Global.ApplicationName)" />
+            <Binding Path="(i18N:LoginView.Login)" />
+        </MultiBinding>
+    </Window.Title>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -20,7 +27,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Background="White">
-            <Image Source="Resources/Images/Windows/Login/login-window-vector-illustration.jpg" />
+            <Image Source="../Resources/Images/Views/application-illustration.jpg" />
         </Grid>
 
         <DockPanel Grid.Column="1">
@@ -28,13 +35,13 @@
                         Background="Transparent">
                 <DockPanel Margin="5">
                     <ui:DropDownButton HorizontalAlignment="Left"
-                                       Content="{x:Static i18N:LoginWindow.DropDownButtonContent}">
+                                       Content="{x:Static i18N:Global.LanguageSelection}">
                         <ui:DropDownButton.Flyout>
                             <ContextMenu>
                                 <MenuItem Name="MenuItemUs" Click="MenuItemUS_OnClick" Tag="en-US"
-                                          Header="{x:Static i18N:LoginWindow.MenuItemUS}" />
+                                          Header="{x:Static i18N:Global.EnglishLanguage}" />
                                 <MenuItem Name="MenuItemCz" Click="MenuItemCZ_OnClick" Tag="cs-CZ"
-                                          Header="{x:Static i18N:LoginWindow.MenuItemCZ}" />
+                                          Header="{x:Static i18N:Global.CzechLanguage}" />
                             </ContextMenu>
                         </ui:DropDownButton.Flyout>
                     </ui:DropDownButton>
@@ -58,12 +65,12 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ui:TextBlock TextAlignment="Center" FontTypography="Subtitle"
-                              Text="{x:Static i18N:LoginWindow.ApplicationName}" />
-                <ui:TextBlock Margin="0 8" TextAlignment="Center" Text="{x:Static i18N:LoginWindow.WelcomeText}" />
+                              Text="{x:Static i18N:Global.ApplicationName}" />
+                <ui:TextBlock Margin="0 8" TextAlignment="Center" Text="{x:Static i18N:LoginView.GreetingMessage}" />
                 <StackPanel Width="205">
-                    <ui:TextBox Margin="0 10" PlaceholderText="{x:Static i18N:LoginWindow.TextBoxUsername}" Icon="{ui:SymbolIcon Person12}"/>
-                    <ui:PasswordBox Margin="0 0 0 10" PlaceholderText="{x:Static i18N:LoginWindow.TextBoxPassword}" Icon="{ui:SymbolIcon Password24}"/>
-                    <ui:Button Width="205" Background="Cyan" Content="{x:Static i18N:LoginWindow.LogInButton}"></ui:Button>
+                    <ui:TextBox Margin="0 10" PlaceholderText="{x:Static i18N:Global.Username}" Icon="{ui:SymbolIcon Person12}"/>
+                    <ui:PasswordBox Margin="0 0 0 10" PlaceholderText="{x:Static i18N:Global.Password}" Icon="{ui:SymbolIcon Password24}"/>
+                    <ui:Button Width="205" Background="Cyan" Content="{x:Static i18N:LoginView.Login}"></ui:Button>
                 </StackPanel>
             </StackPanel>
         </DockPanel>

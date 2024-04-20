@@ -2,14 +2,14 @@
 using System.Windows.Input;
 using Wpf.Ui.Appearance;
 
-namespace Citizens360.WPF;
+namespace Citizens360.WPF.Views;
 
 /// <summary>
 ///     Interaction logic for LoginWindow.xaml
 /// </summary>
-public partial class LoginWindow : Window
+public partial class LoginView : Window
 {
-    public LoginWindow()
+    public LoginView()
     {
         InitializeComponent();
     }
