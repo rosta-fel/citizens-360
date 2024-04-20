@@ -21,14 +21,14 @@ namespace Citizens360.WPF.Resources.I18n {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class LoginWindow {
+    public class Global {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal LoginWindow() {
+        internal Global() {
         }
         
         /// <summary>
@@ -38,7 +38,7 @@ namespace Citizens360.WPF.Resources.I18n {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Citizens360.WPF.Resources.I18n.LoginWindow", typeof(LoginWindow).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Citizens360.WPF.Resources.I18n.Global", typeof(Global).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -69,74 +69,47 @@ namespace Citizens360.WPF.Resources.I18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language.
-        /// </summary>
-        public static string DropDownButtonContent {
-            get {
-                return ResourceManager.GetString("DropDownButtonContent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Log In.
-        /// </summary>
-        public static string LogInButton {
-            get {
-                return ResourceManager.GetString("LogInButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Czech.
         /// </summary>
-        public static string MenuItemCZ {
+        public static string CzechLanguage {
             get {
-                return ResourceManager.GetString("MenuItemCZ", resourceCulture);
+                return ResourceManager.GetString("CzechLanguage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
-        public static string MenuItemUS {
+        public static string EnglishLanguage {
             get {
-                return ResourceManager.GetString("MenuItemUS", resourceCulture);
+                return ResourceManager.GetString("EnglishLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string LanguageSelection {
+            get {
+                return ResourceManager.GetString("LanguageSelection", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
-        public static string TextBoxPassword {
+        public static string Password {
             get {
-                return ResourceManager.GetString("TextBoxPassword", resourceCulture);
+                return ResourceManager.GetString("Password", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
-        public static string TextBoxUsername {
+        public static string Username {
             get {
-                return ResourceManager.GetString("TextBoxUsername", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Welcome! Log in to continue..
-        /// </summary>
-        public static string WelcomeText {
-            get {
-                return ResourceManager.GetString("WelcomeText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Citizens360 - Log in.
-        /// </summary>
-        public static string WindowTitle {
-            get {
-                return ResourceManager.GetString("WindowTitle", resourceCulture);
+                return ResourceManager.GetString("Username", resourceCulture);
             }
         }
     }
