@@ -21,14 +21,14 @@ namespace Citizens360.WPF.Resources.I18n {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class LoginView {
+    public class LoginWindow {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal LoginView() {
+        internal LoginWindow() {
         }
         
         /// <summary>
@@ -38,7 +38,7 @@ namespace Citizens360.WPF.Resources.I18n {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Citizens360.WPF.Resources.I18n.Views.LoginView", typeof(LoginView).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Citizens360.WPF.Resources.I18n.Windows.LoginWindow", typeof(LoginWindow).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -69,7 +69,7 @@ namespace Citizens360.WPF.Resources.I18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log In.
+        ///   Looks up a localized string similar to Log in.
         /// </summary>
         public static string Login {
             get {

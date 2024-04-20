@@ -1,52 +1,55 @@
-﻿<Window x:Class="Citizens360.WPF.Views.LoginView"
+﻿<Window x:Class="Citizens360.WPF.Windows.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:i18N="clr-namespace:Citizens360.WPF.Resources.I18n"
-        mc:Ignorable="d"
-        Width="550" Height="300" WindowStyle="None"
-        ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
-        ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
         Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+        mc:Ignorable="d"
+        Width="550" Height="300"
         WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
         ResizeMode="NoResize">
-    
+
+    <!-- Window Title Binding -->
     <Window.Title>
         <MultiBinding StringFormat="{}{0} - {1}">
             <Binding Path="(i18N:Global.ApplicationName)" />
-            <Binding Path="(i18N:LoginView.Login)" />
+            <Binding Path="(i18N:LoginWindow.Login)" />
         </MultiBinding>
     </Window.Title>
-    
+
+    <!-- Window Content Grid -->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <!-- Left Panel with Image -->
         <Grid Grid.Column="0" Background="White">
-            <Image Source="../Resources/Images/Views/application-illustration.jpg" />
+            <Image Source="../Resources/Images/Windows/application-illustration.jpg" />
         </Grid>
 
+        <!-- Right Panel with Controls -->
         <DockPanel Grid.Column="1">
+            <!-- Top Panel with Buttons -->
             <StackPanel DockPanel.Dock="Top" Height="45" MouseDown="TopStackPanel_OnMouseDown"
                         Background="Transparent">
                 <DockPanel Margin="5">
-                    <ui:DropDownButton HorizontalAlignment="Left"
-                                       Content="{x:Static i18N:Global.LanguageSelection}">
+                    <!-- Language Selection Dropdown Button -->
+                    <ui:DropDownButton HorizontalAlignment="Left" Content="{x:Static i18N:Global.LanguageSelection}">
                         <ui:DropDownButton.Flyout>
                             <ContextMenu>
-                                <MenuItem Name="MenuItemUs" Click="MenuItemUS_OnClick" Tag="en-US"
-                                          Header="{x:Static i18N:Global.EnglishLanguage}" />
-                                <MenuItem Name="MenuItemCz" Click="MenuItemCZ_OnClick" Tag="cs-CZ"
-                                          Header="{x:Static i18N:Global.CzechLanguage}" />
+                                <MenuItem Tag="en-us" Header="{x:Static i18N:Global.EnglishLanguage}" />
+                                <MenuItem Tag="cs-cz" Header="{x:Static i18N:Global.CzechLanguage}" />
                             </ContextMenu>
                         </ui:DropDownButton.Flyout>
                     </ui:DropDownButton>
+                    <!-- Theme Switcher and Close Buttons -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <ui:Button Click="ModeSwitcherButton_OnClick" Padding="4">
+                        <ui:Button Click="ThemeSwitcherButton_OnClick" Padding="4">
                             <ui:Button.Icon>
                                 <ui:SymbolIcon Name="SunnySymbolIcon" Symbol="WeatherSunny24" />
                             </ui:Button.Icon>
@@ -63,14 +66,18 @@
                     </StackPanel>
                 </DockPanel>
             </StackPanel>
-            <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!-- Bottom Panel with Content -->
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom" HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
                 <ui:TextBlock TextAlignment="Center" FontTypography="Subtitle"
                               Text="{x:Static i18N:Global.ApplicationName}" />
-                <ui:TextBlock Margin="0 8" TextAlignment="Center" Text="{x:Static i18N:LoginView.GreetingMessage}" />
+                <ui:TextBlock Margin="0 8" TextAlignment="Center" Text="{x:Static i18N:LoginWindow.GreetingMessage}" />
                 <StackPanel Width="205">
-                    <ui:TextBox Margin="0 10" PlaceholderText="{x:Static i18N:Global.Username}" Icon="{ui:SymbolIcon Person12}"/>
-                    <ui:PasswordBox Margin="0 0 0 10" PlaceholderText="{x:Static i18N:Global.Password}" Icon="{ui:SymbolIcon Password24}"/>
-                    <ui:Button Width="205" Background="Cyan" Content="{x:Static i18N:LoginView.Login}"></ui:Button>
+                    <ui:TextBox Margin="0 10" PlaceholderText="{x:Static i18N:Global.Username}"
+                                Icon="{ui:SymbolIcon Person12}" />
+                    <ui:PasswordBox Margin="0 0 0 10" PlaceholderText="{x:Static i18N:Global.Password}"
+                                    Icon="{ui:SymbolIcon Password24}" />
+                    <ui:Button Width="205" Background="Cyan" Content="{x:Static i18N:LoginWindow.Login}" />
                 </StackPanel>
             </StackPanel>
         </DockPanel>

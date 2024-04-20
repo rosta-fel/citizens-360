@@ -2,14 +2,14 @@
 using System.Windows.Input;
 using Wpf.Ui.Appearance;
 
-namespace Citizens360.WPF.Views;
+namespace Citizens360.WPF.Windows;
 
 /// <summary>
 ///     Interaction logic for LoginWindow.xaml
 /// </summary>
-public partial class LoginView : Window
+public partial class LoginWindow : Window
 {
-    public LoginView()
+    public LoginWindow()
     {
         InitializeComponent();
     }
@@ -30,19 +30,9 @@ public partial class LoginView : Window
         Close();
     }
 
-    private void ModeSwitcherButton_OnClick(object sender, RoutedEventArgs e)
+    private void ThemeSwitcherButton_OnClick(object sender, RoutedEventArgs e)
     {
         SunnySymbolIcon.Filled = !SunnySymbolIcon.Filled;
         ApplicationThemeManager.Apply(SunnySymbolIcon.Filled ? ApplicationTheme.Dark : ApplicationTheme.Light);
-    }
-
-    private void MenuItemUS_OnClick(object sender, RoutedEventArgs e)
-    {
-        // SetLanguage(MenuItemUs.Tag.ToString());
-    }
-
-    private void MenuItemCZ_OnClick(object sender, RoutedEventArgs e)
-    {
-        // SetLanguage(MenuItemCz.Tag.ToString());
     }
 }

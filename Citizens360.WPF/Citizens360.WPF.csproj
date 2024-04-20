@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Page Update="Views\LoginView.xaml">
+      <Page Update="Windows\LoginWindow.xaml">
         <Generator>MSBuild:Compile</Generator>
         <XamlRuntime>Wpf</XamlRuntime>
         <SubType>Designer</SubType>
@@ -25,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="Resources\I18n\Views\LoginView.resx">
+      <EmbeddedResource Update="Resources\I18n\Windows\LoginWindow.resx">
         <Generator>PublicResXFileCodeGenerator</Generator>
         <LastGenOutput>LoginWindow.Designer.cs</LastGenOutput>
       </EmbeddedResource>
@@ -39,10 +39,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Resources\I18n\Views\LoginView.Designer.cs">
+      <Compile Update="Resources\I18n\Windows\LoginWindow.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>LoginView.resx</DependentUpon>
+        <DependentUpon>LoginWindow.resx</DependentUpon>
       </Compile>
       <Compile Update="Resources\I18n\Global.Designer.cs">
         <DesignTime>True</DesignTime>
@@ -52,8 +52,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Resources\Images\Views\application-illustration.jpg" />
-      <Content Include="Resources\Images\Views\application-illustration.jpg">
+      <None Remove="Resources\Images\Windows\application-illustration.jpg" />
+      <Content Include="Resources\Images\Windows\application-illustration.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
