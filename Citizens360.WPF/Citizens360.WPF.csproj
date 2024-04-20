@@ -9,29 +9,53 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="Resources\I18n\LoginWindow.resx">
-        <Generator>PublicResXFileCodeGenerator</Generator>
-        <LastGenOutput>LoginWindow.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="Resources\I18n\LoginWindow.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>LoginWindow.resx</DependentUpon>
-      </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
       <None Remove="Resources\Images\Windows\Login\login-window-vector-illustration.jpg" />
-      <Content Include="Resources\Images\Windows\Login\login-window-vector-illustration.jpg">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="WPF-UI" Version="3.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Views\LoginView.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\I18n\Views\LoginView.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>LoginWindow.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\I18n\Global.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Global.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\I18n\Global.cs-cz.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\I18n\Views\LoginView.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>LoginView.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\I18n\Global.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Global.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\Images\Views\application-illustration.jpg" />
+      <Content Include="Resources\Images\Views\application-illustration.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>
