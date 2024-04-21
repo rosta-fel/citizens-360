@@ -70,10 +70,10 @@ public class EmployeeServiceTests
         EmployeeService employeeService = new(mockRepository.Object);
 
         // Act
-        employeeService.Delete(employeeId);
+        employeeService.Delete(new Employee { Id = employeeId });
 
         // Assert
-        mockRepository.Verify(repo => repo.Delete(employeeId), Times.Once);
+        mockRepository.Verify(repo => repo.Delete(It.IsAny<Employee>()), Times.Once);
     }
 
     [Test]
