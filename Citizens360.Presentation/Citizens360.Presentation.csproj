@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net8.0-windows</TargetFramework>
+        <TargetFramework>net7.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
@@ -10,6 +10,9 @@
 
     <ItemGroup>
       <None Remove="Resources\Images\Windows\Login\login-window-vector-illustration.jpg" />
+      <None Update="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
