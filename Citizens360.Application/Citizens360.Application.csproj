@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Citizens360.Data\Citizens360.Data.csproj" />
+      <ProjectReference Include="..\Citizens360.Domain\Citizens360.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
