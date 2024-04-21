@@ -3,10 +3,15 @@ using Citizens360.Domain.Interfaces;
 
 namespace Citizens360.Application.Services;
 
-public class EmployeeService(IUnitOfWork unitOfWork) : IEmployeeService
+public class EmployeeService : IEmployeeService
 {
-    private readonly IUnitOfWork _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+    private readonly IUnitOfWork _unitOfWork;
 
+    public EmployeeService(IUnitOfWork unitOfWork)
+    {
+        _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+    }
+    
     public Employee? Get(int id)
     {
         if (id <= 0)
