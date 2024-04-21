@@ -3,28 +3,32 @@ using Citizens360.Domain.Interfaces.Repositories;
 
 namespace Citizens360.Application.Services;
 
-public class EmployeeService(IRepository<Employee> repository) : IEmployeeService
+public class EmployeeService(IEmployeeRepository repository) : IEmployeeService
 {
-    private readonly IRepository<Employee> _repository = repository;
-
     public Employee? Get(int id)
     {
-        return _repository.GetAll().SingleOrDefault(e => e.Id == id);
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(id);
+        return repository.Get(id);
     }
 
-    public IEnumerable<Employee> Get()
+    public IEnumerable<Employee?> Get()
     {
-        return _repository.GetAll().ToList();
+        return repository.Get();
     }
 
     public void Create(Employee employee)
     {
-        _repository.Create(employee);
+        repository.Create(employee);
     }
 
     public void Delete(int id)
     {
-        Employee employeeToDelete = Get(id) ?? throw new Exception("Employee not found!");
-        _repository.Delete(employeeToDelete);
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(id);
+        repository.Delete(id);
+    }
+
+    public void Update(Employee employee)
+    {
+        repository.Update(employee);
     }
 }
