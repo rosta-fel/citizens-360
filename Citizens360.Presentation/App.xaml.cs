@@ -14,6 +14,7 @@ public partial class App : System.Windows.Application
     private static readonly IHost Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
         .ConfigureServices((_, services) =>
         {
+            services.AddSingleton<LoginWindow>();
             services.AddTransient<IEmployeeService, EmployeeService>();
         }).Build();
 
