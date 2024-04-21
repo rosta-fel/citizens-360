@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.Application", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.Domain", "Citizens360.Domain\Citizens360.Domain.csproj", "{67F5A1B0-CF77-4E24-9289-B502A43A8D25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.Application.Test", "Citizens360.Application.Test\Citizens360.Application.Test.csproj", "{1D193F01-A524-422C-8617-2648D851B3AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{67F5A1B0-CF77-4E24-9289-B502A43A8D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67F5A1B0-CF77-4E24-9289-B502A43A8D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67F5A1B0-CF77-4E24-9289-B502A43A8D25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D193F01-A524-422C-8617-2648D851B3AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D193F01-A524-422C-8617-2648D851B3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D193F01-A524-422C-8617-2648D851B3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D193F01-A524-422C-8617-2648D851B3AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
