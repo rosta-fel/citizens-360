@@ -6,4 +6,12 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Adita.Identity.EntityFrameworkCore" Version="1.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Citizens360.Domain\Citizens360.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
