@@ -1,33 +1,49 @@
 using Citizens360.Domain.Entities;
-using Citizens360.Domain.Interfaces.Repositories;
+using Citizens360.Domain.Interfaces;
 
 namespace Citizens360.Application.Services;
 
-public class EmployeeService(IEmployeeRepository repository) : IEmployeeService
+public class EmployeeService(IUnitOfWork unitOfWork) : IEmployeeService
 {
+    private readonly IUnitOfWork _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+
     public Employee? Get(int id)
     {
-        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(id);
-        return repository.Get(id);
+        if (id <= 0)
+            throw new ArgumentOutOfRangeException(nameof(id), "Employee ID must be greater than zero.");
+
+        return _unitOfWork.Employees.Get(id);
     }
 
     public IEnumerable<Employee?> Get()
     {
-        return repository.Get();
+        return _unitOfWork.Employees.Get();
     }
 
     public void Create(Employee employee)
     {
-        repository.Create(employee);
+        if (employee == null)
+            throw new ArgumentNullException(nameof(employee), "Employee object cannot be null.");
+
+        _unitOfWork.Employees.Create(employee);
+        _unitOfWork.Commit();
     }
 
     public void Delete(Employee employee)
     {
-        repository.Delete(employee);
+        if (employee == null)
+            throw new ArgumentNullException(nameof(employee), "Employee object cannot be null.");
+
+        _unitOfWork.Employees.Delete(employee);
+        _unitOfWork.Commit();
     }
 
     public void Update(Employee employee)
     {
-        repository.Update(employee);
+        if (employee == null)
+            throw new ArgumentNullException(nameof(employee), "Employee object cannot be null.");
+
+        _unitOfWork.Employees.Update(employee);
+        _unitOfWork.Commit();
     }
 }
