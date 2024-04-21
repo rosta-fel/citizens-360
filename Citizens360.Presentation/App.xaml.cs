@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Citizens360.PresentationLayer;
+namespace Citizens360.Presentation;
 
 /// <summary>
 /// Interaction logic for App.xaml

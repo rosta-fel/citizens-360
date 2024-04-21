@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.PresentationLayer", "Citizens360.PresentationLayer\Citizens360.PresentationLayer.csproj", "{EC2E319A-C514-4D07-91C5-3119D76ACC71}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.Presentation", "Citizens360.Presentation\Citizens360.Presentation.csproj", "{EC2E319A-C514-4D07-91C5-3119D76ACC71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.DataAccessLayer", "Citizens360.DataAccessLayer\Citizens360.DataAccessLayer.csproj", "{44E918AF-9C12-47DE-A57C-0ED5EE186FFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.Data", "Citizens360.Data\Citizens360.Data.csproj", "{44E918AF-9C12-47DE-A57C-0ED5EE186FFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.BusinessLogicLayer", "Citizens360.BusinessLogicLayer\Citizens360.BusinessLogicLayer.csproj", "{82CDFAEF-6375-43A3-BBE7-BC3C61CF5C55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.Application", "Citizens360.Application\Citizens360.Application.csproj", "{82CDFAEF-6375-43A3-BBE7-BC3C61CF5C55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.DomainLayer", "Citizens360.DomainLayer\Citizens360.DomainLayer.csproj", "{67F5A1B0-CF77-4E24-9289-B502A43A8D25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Citizens360.Domain", "Citizens360.Domain\Citizens360.Domain.csproj", "{67F5A1B0-CF77-4E24-9289-B502A43A8D25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +30,7 @@ Global
 		{67F5A1B0-CF77-4E24-9289-B502A43A8D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67F5A1B0-CF77-4E24-9289-B502A43A8D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67F5A1B0-CF77-4E24-9289-B502A43A8D25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
