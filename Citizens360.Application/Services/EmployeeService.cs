@@ -21,10 +21,9 @@ public class EmployeeService(IEmployeeRepository repository) : IEmployeeService
         repository.Create(employee);
     }
 
-    public void Delete(int id)
+    public void Delete(Employee employee)
     {
-        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(id);
-        repository.Delete(id);
+        repository.Delete(employee);
     }
 
     public void Update(Employee employee)
