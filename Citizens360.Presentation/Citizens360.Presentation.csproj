@@ -10,9 +10,6 @@
 
     <ItemGroup>
       <None Remove="Resources\Images\Windows\Login\login-window-vector-illustration.jpg" />
-      <None Update="appsettings.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
     </ItemGroup>
 
     <ItemGroup>
@@ -39,6 +36,10 @@
       </EmbeddedResource>
       <EmbeddedResource Update="Resources\I18n\Global.cs-cz.resx">
         <Generator>PublicResXFileCodeGenerator</Generator>
+      </EmbeddedResource>
+      <None Remove="appsettings.json" />
+      <EmbeddedResource Include="appsettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
     </ItemGroup>
 
