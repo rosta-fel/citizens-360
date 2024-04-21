@@ -5,5 +5,9 @@ namespace Citizens360.Data;
 
 public class Citizens360Context : DbContext
 {
-    public required DbSet<Employee> Employees { get; set; }
+    public required DbSet<Employee> Employees { get; init; }
+
+    public Citizens360Context(DbContextOptions options) : base(options)
+    {
+    }
 }
