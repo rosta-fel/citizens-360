@@ -30,12 +30,12 @@ public class EmployeeServiceTests
     public void Get_AllEmployees_ReturnsAllEmployees()
     {
         // Arrange
-        List<Employee> expectedEmployees =
-        [
+        List<Employee> expectedEmployees = new()
+        {
             new Employee { Id = 1, FirstName = "John", LastName = "Doe" },
             new Employee { Id = 2, FirstName = "Jane", LastName = "Smith" },
             new Employee { Id = 3, FirstName = "Michael", LastName = "Johnson" }
-        ];
+        };
         
         Mock<IUnitOfWork> mockUnitOfWork = new();
         mockUnitOfWork.Setup(uow => uow.Employees.Get()).Returns(expectedEmployees.AsQueryable());
