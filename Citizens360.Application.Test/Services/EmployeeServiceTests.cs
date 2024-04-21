@@ -1,5 +1,6 @@
 using Citizens360.Application.Services;
 using Citizens360.Domain.Entities;
+using Citizens360.Domain.Interfaces;
 using Citizens360.Domain.Interfaces.Repositories;
 using Moq;
 
@@ -14,9 +15,9 @@ public class EmployeeServiceTests
         // Arrange
         const int employeeId = 1;
         Employee expectedEmployee = new() { Id = employeeId, FirstName = "John", LastName = "Doe" };
-        Mock<IEmployeeRepository> mockRepository = new();
-        mockRepository.Setup(repo => repo.Get(employeeId)).Returns(expectedEmployee);
-        EmployeeService employeeService = new(mockRepository.Object);
+        Mock<IUnitOfWork> mockUnitOfWork = new();
+        mockUnitOfWork.Setup(uow => uow.Employees.Get(employeeId)).Returns(expectedEmployee);
+        EmployeeService employeeService = new(mockUnitOfWork.Object);
 
         // Act
         Employee? result = employeeService.Get(employeeId);
@@ -35,9 +36,10 @@ public class EmployeeServiceTests
             new Employee { Id = 2, FirstName = "Jane", LastName = "Smith" },
             new Employee { Id = 3, FirstName = "Michael", LastName = "Johnson" }
         ];
-        Mock<IEmployeeRepository> mockRepository = new();
-        mockRepository.Setup(repo => repo.Get()).Returns(expectedEmployees.AsQueryable());
-        EmployeeService employeeService = new(mockRepository.Object);
+        
+        Mock<IUnitOfWork> mockUnitOfWork = new();
+        mockUnitOfWork.Setup(uow => uow.Employees.Get()).Returns(expectedEmployees.AsQueryable());
+        EmployeeService employeeService = new(mockUnitOfWork.Object);
 
         // Act
         IEnumerable<Employee?> result = employeeService.Get();
@@ -50,15 +52,19 @@ public class EmployeeServiceTests
     public void Create_NewEmployee_CreatesEmployee()
     {
         // Arrange
-        Mock<IEmployeeRepository> mockRepository = new();
-        EmployeeService employeeService = new(mockRepository.Object);
+        Mock<IUnitOfWork> mockUnitOfWork = new();
+        Mock<IEmployeeRepository> mockEmployeeRepository = new();
+        mockUnitOfWork.Setup(uow => uow.Employees).Returns(mockEmployeeRepository.Object);
+
+        EmployeeService employeeService = new(mockUnitOfWork.Object);
         Employee newEmployee = new() { FirstName = "John", LastName = "Doe" };
 
         // Act
         employeeService.Create(newEmployee);
 
         // Assert
-        mockRepository.Verify(repo => repo.Create(newEmployee), Times.Once);
+        mockEmployeeRepository.Verify(repo => repo.Create(newEmployee), Times.Once);
+        mockUnitOfWork.Verify(uow => uow.Commit(), Times.Once);
     }
 
     [Test]
@@ -66,28 +72,37 @@ public class EmployeeServiceTests
     {
         // Arrange
         const int employeeId = 1;
-        Mock<IEmployeeRepository> mockRepository = new();
-        EmployeeService employeeService = new(mockRepository.Object);
+        Mock<IUnitOfWork> mockUnitOfWork = new();
+        Mock<IEmployeeRepository> mockEmployeeRepository = new();
+        mockUnitOfWork.Setup(uow => uow.Employees).Returns(mockEmployeeRepository.Object);
+
+        EmployeeService employeeService = new(mockUnitOfWork.Object);
 
         // Act
         employeeService.Delete(new Employee { Id = employeeId });
 
         // Assert
-        mockRepository.Verify(repo => repo.Delete(It.IsAny<Employee>()), Times.Once);
+        mockEmployeeRepository.Verify(repo => repo.Delete(It.IsAny<Employee>()), Times.Once);
+        mockUnitOfWork.Verify(uow => uow.Commit(), Times.Once);
     }
+
 
     [Test]
     public void Update_ExistingEmployee_UpdatesEmployee()
     {
         // Arrange
-        Mock<IEmployeeRepository> mockRepository = new();
-        EmployeeService employeeService = new(mockRepository.Object);
+        Mock<IUnitOfWork> mockUnitOfWork = new();
+        Mock<IEmployeeRepository> mockEmployeeRepository = new();
+        mockUnitOfWork.Setup(uow => uow.Employees).Returns(mockEmployeeRepository.Object);
+
+        EmployeeService employeeService = new(mockUnitOfWork.Object);
         Employee existingEmployee = new() { Id = 1, FirstName = "John", LastName = "Doe" };
 
         // Act
         employeeService.Update(existingEmployee);
 
         // Assert
-        mockRepository.Verify(repo => repo.Update(existingEmployee), Times.Once);
+        mockEmployeeRepository.Verify(repo => repo.Update(existingEmployee), Times.Once);
+        mockUnitOfWork.Verify(uow => uow.Commit(), Times.Once);
     }
 }
