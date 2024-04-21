@@ -7,6 +7,6 @@ public interface IEmployeeService
     Employee? Get(int id);
     IEnumerable<Employee?> Get();
     void Create(Employee employee);
-    void Delete(int id);
+    void Delete(Employee employee);
     void Update(Employee employee);
 }
