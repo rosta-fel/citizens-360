@@ -13,7 +13,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="EntityFrameworkCore.Exceptions.SqlServer" Version="8.1.2" />
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+      <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
       <PackageReference Include="WPF-UI" Version="3.0.4" />
     </ItemGroup>
 
@@ -37,8 +39,8 @@
       <EmbeddedResource Update="Resources\I18n\Global.cs-cz.resx">
         <Generator>PublicResXFileCodeGenerator</Generator>
       </EmbeddedResource>
-      <None Remove="appsettings.json" />
-      <EmbeddedResource Include="appsettings.json">
+      <None Remove="app-settings.json" />
+      <EmbeddedResource Include="app-settings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
     </ItemGroup>
