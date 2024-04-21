@@ -26,7 +26,7 @@ public class Repository<TEntity>(DbContext context) : IRepository<TEntity>
 
     public void Update(TEntity entity)
     {
-        Context.Set<TEntity>().Update(entity);
+        Context.Entry(entity).State = EntityState.Modified;
     }
 
     public void Delete(TEntity entity)
