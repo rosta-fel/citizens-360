@@ -1,4 +1,4 @@
-﻿namespace Citizens360.Domain;
+﻿namespace Citizens360.DomainLayer;
 
 public class Class1
 {

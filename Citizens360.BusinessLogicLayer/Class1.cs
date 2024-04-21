@@ -1,4 +1,4 @@
-﻿namespace Citizens360.Business;
+﻿namespace Citizens360.BusinessLogicLayer;
 
 public class Class1
 {

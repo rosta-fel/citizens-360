@@ -4,7 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Citizens360.Domain</RootNamespace>
+        <RootNamespace>Citizens360.DomainLayer</RootNamespace>
     </PropertyGroup>
 
 </Project>

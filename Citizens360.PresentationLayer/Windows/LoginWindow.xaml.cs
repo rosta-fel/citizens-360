@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using Wpf.Ui.Appearance;
 
-namespace Citizens360.WPF.Windows;
+namespace Citizens360.PresentationLayer.Windows;
 
 /// <summary>
 ///     Interaction logic for LoginWindow.xaml

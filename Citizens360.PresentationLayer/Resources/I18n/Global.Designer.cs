@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Citizens360.WPF.Resources.I18n {
+namespace Citizens360.PresentationLayer.Resources.I18n {
     using System;
     
     
@@ -38,7 +38,7 @@ namespace Citizens360.WPF.Resources.I18n {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Citizens360.WPF.Resources.I18n.Global", typeof(Global).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Citizens360.PresentationLayer.Resources.I18n.Global", typeof(Global).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

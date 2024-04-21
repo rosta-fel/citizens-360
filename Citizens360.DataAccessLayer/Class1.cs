@@ -1,4 +1,4 @@
-﻿namespace Citizens360.Data;
+﻿namespace Citizens360.DataAccessLayer;
 
 public class Class1
 {

@@ -1,8 +1,6 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
+﻿using System.Windows;
 
-namespace Citizens360.WPF;
+namespace Citizens360.PresentationLayer;
 
 /// <summary>
 /// Interaction logic for App.xaml
