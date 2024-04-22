@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using Citizens360.Presentation.Configuration;
 using Wpf.Ui.Appearance;
 
 namespace Citizens360.Presentation.Windows;
@@ -9,9 +10,25 @@ namespace Citizens360.Presentation.Windows;
 /// </summary>
 public partial class LoginWindow : Window
 {
-    public LoginWindow()
+    private readonly AppSettings _appSettings;
+    
+    public LoginWindow(AppSettings appSettings)
     {
         InitializeComponent();
+        _appSettings = appSettings;
+
+        Loaded += LoginWindow_Loaded;
+        Closing += LoginWindow_Closing;
+    }
+    
+    private void LoginWindow_Loaded(object sender, RoutedEventArgs e)
+    {
+        UpdateTheme(_appSettings.DarkTheme);
+    }
+    
+    private void LoginWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+    {
+        _appSettings.Save();
     }
     
     private void TopStackPanel_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -32,7 +49,13 @@ public partial class LoginWindow : Window
 
     private void ThemeSwitcherButton_OnClick(object sender, RoutedEventArgs e)
     {
-        SunnySymbolIcon.Filled = !SunnySymbolIcon.Filled;
-        ApplicationThemeManager.Apply(SunnySymbolIcon.Filled ? ApplicationTheme.Dark : ApplicationTheme.Light);
+        UpdateTheme(!SunnySymbolIcon.Filled);
+        _appSettings.DarkTheme = ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark;
+    }
+
+    private void UpdateTheme(bool isDarkTheme)
+    {
+        SunnySymbolIcon.Filled = isDarkTheme;
+        ApplicationThemeManager.Apply(isDarkTheme ? ApplicationTheme.Dark : ApplicationTheme.Light);
     }
 }
