@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=test;User Id=root;Password=root;"
+    "DefaultConnection": "server=localhost;port=3306;database=test;uid=rosty;password=rosty;"
   },
   "LanguageTag": "en-us",
   "DarkTheme": false
