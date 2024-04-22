@@ -9,10 +9,10 @@ public class UnitOfWork : IUnitOfWork, IDisposable
 {
     public IEmployeeRepository Employees { get; }
 
-    private readonly Citizens360Context _context;
+    private readonly Citizens360DbContext _context;
     private bool _disposed;
 
-    public UnitOfWork(Citizens360Context context)
+    public UnitOfWork(Citizens360DbContext context)
     {
         _context = context;
 

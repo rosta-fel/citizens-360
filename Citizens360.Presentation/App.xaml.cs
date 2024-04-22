@@ -29,7 +29,7 @@ public partial class App
             
             string? connectionString = context.Configuration.GetConnectionString("DefaultConnection");
 
-            services.AddDbContext<Citizens360Context>(options =>
+            services.AddDbContext<Citizens360DbContext>(options =>
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
             
             services.AddSingleton<LoginWindow>();
