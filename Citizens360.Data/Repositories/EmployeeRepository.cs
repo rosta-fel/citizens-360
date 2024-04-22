@@ -8,19 +8,19 @@ namespace Citizens360.Data.Repositories;
 
 public class EmployeeRepository : Repository<Employee>, IEmployeeRepository
 {
-    private Citizens360Context? Citizens360Context { get; }
+    private Citizens360DbContext? Citizens360DbContext { get; }
 
     public EmployeeRepository(DbContext context) : base(context)
     {
-        Citizens360Context = context as Citizens360Context;
+        Citizens360DbContext = context as Citizens360DbContext;
     }
     
     public IQueryable<Employee> SortEmployeesByLastName()
     {
-        if (Citizens360Context is null)
-            throw new InvalidOperationException($"The context is not of type {typeof(Citizens360Context)}.");
+        if (Citizens360DbContext is null)
+            throw new InvalidOperationException($"The context is not of type {typeof(Citizens360DbContext)}.");
         
-        return Citizens360Context.Employees
+        return Citizens360DbContext.Employees
             .OrderBy(e => e.LastName);
     }
 }
