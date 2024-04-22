@@ -18,7 +18,7 @@ public class EmployeeRepository : Repository<Employee>, IEmployeeRepository
     public IQueryable<Employee> SortEmployeesByLastName()
     {
         if (Citizens360Context is null)
-            throw new InvalidOperationException($"The context is not of type {nameof(Citizens360Context)}.");
+            throw new InvalidOperationException($"The context is not of type {typeof(Citizens360Context)}.");
         
         return Citizens360Context.Employees
             .OrderBy(e => e.LastName);
