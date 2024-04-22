@@ -36,4 +36,7 @@
     <data name="LanguageSelection" xml:space="preserve">
         <value>Language</value>
     </data>
+    <data name="RequiredRestart" xml:space="preserve">
+        <value>Required application restart!</value>
+    </data>
 </root>

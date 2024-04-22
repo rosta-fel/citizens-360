@@ -29,4 +29,7 @@
     <data name="LanguageSelection" xml:space="preserve">
         <value>Jazyk</value>
     </data>
+    <data name="RequiredRestart" xml:space="preserve">
+        <value>Je vyžadován restart aplikace!</value>
+    </data>
 </root>

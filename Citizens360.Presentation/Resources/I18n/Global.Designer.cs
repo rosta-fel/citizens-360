@@ -105,6 +105,15 @@ namespace Citizens360.Presentation.Resources.I18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Required application restart!.
+        /// </summary>
+        public static string RequiredRestart {
+            get {
+                return ResourceManager.GetString("RequiredRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string Username {
