@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using Citizens360.Application.Services;
 using Citizens360.Data;
+using Citizens360.Presentation.Configuration;
 using Citizens360.Presentation.Windows;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -17,17 +17,22 @@ public partial class App
     private static readonly IHost Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
         .ConfigureAppConfiguration((_, config) =>
         {
-            config.AddJsonFile("app-settings.json", optional: false, reloadOnChange: true);
+            config.AddJsonFile(AppSettings.ConfigFileName, optional: false, reloadOnChange: true);
         })
         .ConfigureServices((context, services) =>
         {
+            services.AddSingleton<AppSettings>(_ =>
+            {
+                IConfiguration configuration = context.Configuration;
+                return AppSettings.Load(configuration) ?? throw new InvalidOperationException("Failed to load app settings.");
+            });
+            
             string? connectionString = context.Configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<Citizens360Context>(options =>
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
             
             services.AddSingleton<LoginWindow>();
-            services.AddTransient<IEmployeeService, EmployeeService>();
         })
         .Build();
 
