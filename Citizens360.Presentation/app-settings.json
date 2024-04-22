@@ -1,5 +1,7 @@
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=localhost;Database=test;User Id=root;Password=root;"
-  }
+  },
+  "LanguageTag": "en-us",
+  "DarkTheme": false
 }
