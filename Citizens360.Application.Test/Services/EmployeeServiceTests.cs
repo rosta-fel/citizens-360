@@ -1,7 +1,6 @@
 using Citizens360.Application.Services;
 using Citizens360.Domain.Entities;
 using Citizens360.Domain.Interfaces;
-using Citizens360.Domain.Interfaces.Repositories;
 using Moq;
 
 namespace Citizens360.Application.Test.Services;
@@ -10,99 +9,82 @@ namespace Citizens360.Application.Test.Services;
 public class EmployeeServiceTests
 {
     [Test]
-    public void Get_ValidId_ReturnsEmployee()
+    public void Authenticate_ValidCredentials_ReturnsTrue()
     {
         // Arrange
-        const int employeeId = 1;
-        Employee expectedEmployee = new() { Id = employeeId, FirstName = "John", LastName = "Doe" };
+        const string? username = "testUser";
+        const string? password = "testPassword";
+        Employee expectedEmployee = new() { Username = username, Password = password };
+
         Mock<IUnitOfWork> mockUnitOfWork = new();
-        mockUnitOfWork.Setup(uow => uow.Employees.Get(employeeId)).Returns(expectedEmployee);
+        mockUnitOfWork.Setup(uow => uow.Employees.GetEmployeeByUsername(username)).Returns(expectedEmployee);
+
         EmployeeService employeeService = new(mockUnitOfWork.Object);
 
         // Act
-        Employee? result = employeeService.Get(employeeId);
+        bool isAuthenticated = employeeService.Authenticate(username, password);
 
         // Assert
-        Assert.That(result, Is.EqualTo(expectedEmployee));
+        Assert.That(isAuthenticated, Is.True);
     }
 
     [Test]
-    public void Get_AllEmployees_ReturnsAllEmployees()
+    public void Authenticate_EmptyUsername_ReturnsFalse()
     {
         // Arrange
-        List<Employee> expectedEmployees = new()
-        {
-            new Employee { Id = 1, FirstName = "John", LastName = "Doe" },
-            new Employee { Id = 2, FirstName = "Jane", LastName = "Smith" },
-            new Employee { Id = 3, FirstName = "Michael", LastName = "Johnson" }
-        };
-        
-        Mock<IUnitOfWork> mockUnitOfWork = new();
-        mockUnitOfWork.Setup(uow => uow.Employees.Get()).Returns(expectedEmployees.AsQueryable());
-        EmployeeService employeeService = new(mockUnitOfWork.Object);
+        const string? password = "testPassword";
+
+        EmployeeService employeeService = new(null);
 
         // Act
-        IEnumerable<Employee?> result = employeeService.Get();
+        bool isAuthenticated = employeeService.Authenticate("", password);
 
         // Assert
-        Assert.That(result, Is.EquivalentTo(expectedEmployees));
+        Assert.That(isAuthenticated, Is.False);
     }
 
     [Test]
-    public void Create_NewEmployee_CreatesEmployee()
+    public void Authenticate_EmptyPassword_ReturnsFalse()
     {
         // Arrange
-        Mock<IUnitOfWork> mockUnitOfWork = new();
-        Mock<IEmployeeRepository> mockEmployeeRepository = new();
-        mockUnitOfWork.Setup(uow => uow.Employees).Returns(mockEmployeeRepository.Object);
+        const string? username = "testUser";
 
-        EmployeeService employeeService = new(mockUnitOfWork.Object);
-        Employee newEmployee = new() { FirstName = "John", LastName = "Doe" };
+        EmployeeService employeeService = new(null);
 
         // Act
-        employeeService.Create(newEmployee);
+        bool isAuthenticated = employeeService.Authenticate(username, "");
 
         // Assert
-        mockEmployeeRepository.Verify(repo => repo.Create(newEmployee), Times.Once);
-        mockUnitOfWork.Verify(uow => uow.Commit(), Times.Once);
+        Assert.That(isAuthenticated, Is.False);
     }
 
     [Test]
-    public void Delete_ExistingEmployee_DeletesEmployee()
+    public void Authenticate_NullUsername_ReturnsFalse()
     {
         // Arrange
-        const int employeeId = 1;
-        Mock<IUnitOfWork> mockUnitOfWork = new();
-        Mock<IEmployeeRepository> mockEmployeeRepository = new();
-        mockUnitOfWork.Setup(uow => uow.Employees).Returns(mockEmployeeRepository.Object);
+        const string? password = "testPassword";
 
-        EmployeeService employeeService = new(mockUnitOfWork.Object);
+        EmployeeService employeeService = new(null);
 
         // Act
-        employeeService.Delete(new Employee { Id = employeeId });
+        bool isAuthenticated = employeeService.Authenticate(null, password);
 
         // Assert
-        mockEmployeeRepository.Verify(repo => repo.Delete(It.IsAny<Employee>()), Times.Once);
-        mockUnitOfWork.Verify(uow => uow.Commit(), Times.Once);
+        Assert.That(isAuthenticated, Is.False);
     }
 
-
     [Test]
-    public void Update_ExistingEmployee_UpdatesEmployee()
+    public void Authenticate_NullPassword_ReturnsFalse()
     {
         // Arrange
-        Mock<IUnitOfWork> mockUnitOfWork = new();
-        Mock<IEmployeeRepository> mockEmployeeRepository = new();
-        mockUnitOfWork.Setup(uow => uow.Employees).Returns(mockEmployeeRepository.Object);
+        const string? username = "testUser";
 
-        EmployeeService employeeService = new(mockUnitOfWork.Object);
-        Employee existingEmployee = new() { Id = 1, FirstName = "John", LastName = "Doe" };
+        EmployeeService employeeService = new(null);
 
         // Act
-        employeeService.Update(existingEmployee);
+        bool isAuthenticated = employeeService.Authenticate(username, null);
 
         // Assert
-        mockEmployeeRepository.Verify(repo => repo.Update(existingEmployee), Times.Once);
-        mockUnitOfWork.Verify(uow => uow.Commit(), Times.Once);
+        Assert.That(isAuthenticated, Is.False);
     }
 }
