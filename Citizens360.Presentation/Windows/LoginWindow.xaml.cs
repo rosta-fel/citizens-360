@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Citizens360.Presentation.Configuration;
 using Wpf.Ui.Appearance;
@@ -11,26 +14,30 @@ namespace Citizens360.Presentation.Windows;
 public partial class LoginWindow : Window
 {
     private readonly AppSettings _appSettings;
-    
+
     public LoginWindow(AppSettings appSettings)
     {
-        InitializeComponent();
         _appSettings = appSettings;
+        
+        if (_appSettings.LanguageTag != null)
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(_appSettings.LanguageTag);
+        
+        InitializeComponent();
 
         Loaded += LoginWindow_Loaded;
         Closing += LoginWindow_Closing;
     }
-    
+
     private void LoginWindow_Loaded(object sender, RoutedEventArgs e)
     {
         UpdateTheme(_appSettings.DarkTheme);
     }
-    
-    private void LoginWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+
+    private void LoginWindow_Closing(object? sender, CancelEventArgs e)
     {
         _appSettings.Save();
     }
-    
+
     private void TopStackPanel_OnMouseDown(object sender, MouseButtonEventArgs e)
     {
         if (e.LeftButton == MouseButtonState.Pressed)
@@ -57,5 +64,23 @@ public partial class LoginWindow : Window
     {
         SunnySymbolIcon.Filled = isDarkTheme;
         ApplicationThemeManager.Apply(isDarkTheme ? ApplicationTheme.Dark : ApplicationTheme.Light);
+    }
+
+    private void MenuItemLanguage_OnClick(object sender, RoutedEventArgs e)
+    {
+        MenuItem menuItem = (MenuItem)sender;
+        string? selectedLanguageTag = menuItem.Tag?.ToString()?.ToLower();
+
+        string currentCultureTag = Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.ToLower();
+
+        if (Equals(currentCultureTag, selectedLanguageTag))
+        {
+            ReloadNeedWarningIcon.Visibility = Visibility.Hidden;
+        }
+        else
+        {
+            ReloadNeedWarningIcon.Visibility = Visibility.Visible;
+            _appSettings.LanguageTag = selectedLanguageTag;
+        }
     }
 }
