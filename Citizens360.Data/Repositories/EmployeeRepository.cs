@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Citizens360.Domain.Entities;
 using Citizens360.Domain.Interfaces.Repositories;
@@ -14,13 +13,10 @@ public class EmployeeRepository : Repository<Employee>, IEmployeeRepository
     {
         Citizens360DbContext = context as Citizens360DbContext;
     }
-    
-    public IQueryable<Employee> SortEmployeesByLastName()
+
+    public Employee? GetEmployeeByUsername(string? username)
     {
-        if (Citizens360DbContext is null)
-            throw new InvalidOperationException($"The context is not of type {typeof(Citizens360DbContext)}.");
-        
-        return Citizens360DbContext.Employees
-            .OrderBy(e => e.LastName);
+        return Citizens360DbContext?.Employees.SingleOrDefault(employee =>
+            employee.Username == username);
     }
 }
