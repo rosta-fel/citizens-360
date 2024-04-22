@@ -10,4 +10,11 @@ public class Citizens360DbContext : DbContext
     public Citizens360DbContext(DbContextOptions options) : base(options)
     {
     }
+    
+    protected override void OnModelCreating(ModelBuilder mBuilder)
+    {
+        mBuilder.Entity<Employee>()
+            .HasIndex(e => new { e.Username })
+            .IsUnique();
+    }
 }
