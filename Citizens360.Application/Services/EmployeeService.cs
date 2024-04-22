@@ -5,50 +5,20 @@ namespace Citizens360.Application.Services;
 
 public class EmployeeService : IEmployeeService
 {
-    private readonly IUnitOfWork _unitOfWork;
+    private readonly IUnitOfWork? _unitOfWork;
 
-    public EmployeeService(IUnitOfWork unitOfWork)
+    public EmployeeService(IUnitOfWork? unitOfWork)
     {
         _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
     }
-    
-    public Employee? Get(int id)
+
+    public bool Authenticate(string? username, string? password)
     {
-        if (id <= 0)
-            throw new ArgumentOutOfRangeException(nameof(id), "Employee ID must be greater than zero.");
+        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            return false;
 
-        return _unitOfWork.Employees.Get(id);
-    }
+        Employee? employee = _unitOfWork?.Employees.GetEmployeeByUsername(username);
 
-    public IEnumerable<Employee?> Get()
-    {
-        return _unitOfWork.Employees.Get();
-    }
-
-    public void Create(Employee employee)
-    {
-        if (employee == null)
-            throw new ArgumentNullException(nameof(employee), "Employee object cannot be null.");
-
-        _unitOfWork.Employees.Create(employee);
-        _unitOfWork.Commit();
-    }
-
-    public void Delete(Employee employee)
-    {
-        if (employee == null)
-            throw new ArgumentNullException(nameof(employee), "Employee object cannot be null.");
-
-        _unitOfWork.Employees.Delete(employee);
-        _unitOfWork.Commit();
-    }
-
-    public void Update(Employee employee)
-    {
-        if (employee == null)
-            throw new ArgumentNullException(nameof(employee), "Employee object cannot be null.");
-
-        _unitOfWork.Employees.Update(employee);
-        _unitOfWork.Commit();
+        return employee != null && employee.Password == password;
     }
 }
