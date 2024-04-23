@@ -18,7 +18,7 @@ public partial class LoginWindow : Window
     public LoginWindow(AppSettings appSettings)
     {
         _appSettings = appSettings;
-        
+
         if (_appSettings.LanguageTag != null)
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(_appSettings.LanguageTag);
         
