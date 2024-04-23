@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:wModels="clr-namespace:Citizens360.Presentation.WindowModels"
         xmlns:i18N="clr-namespace:Citizens360.Presentation.Resources.I18n"
         Foreground="{DynamicResource TextFillColorPrimaryBrush}"
         mc:Ignorable="d"
@@ -19,6 +20,11 @@
             <Binding Path="(i18N:LoginWindow.Login)" />
         </MultiBinding>
     </Window.Title>
+    
+    <!-- Set DataContext to LoginWindowModel -->
+    <Window.DataContext>
+        <wModels:LoginWindowModel />
+    </Window.DataContext>
 
     <!-- Window Content Grid -->
     <Grid>
@@ -74,11 +80,11 @@
                               Text="{x:Static i18N:Global.ApplicationName}" />
                 <ui:TextBlock Margin="0 8" TextAlignment="Center" Text="{x:Static i18N:LoginWindow.GreetingMessage}" />
                 <StackPanel Width="205">
-                    <ui:TextBox Margin="0 10" PlaceholderText="{x:Static i18N:Global.Username}"
+                    <ui:TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="0 10" PlaceholderText="{x:Static i18N:Global.Username}"
                                 Icon="{ui:SymbolIcon Person12}" />
-                    <ui:PasswordBox Margin="0 0 0 10" PlaceholderText="{x:Static i18N:Global.Password}"
+                    <ui:PasswordBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10" PlaceholderText="{x:Static i18N:Global.Password}"
                                     Icon="{ui:SymbolIcon Password24}" />
-                    <ui:Button Width="205" Background="DarkCyan" Content="{x:Static i18N:LoginWindow.Login}" />
+                    <ui:Button Width="205" Background="DarkCyan" Command="{Binding LoginCommand}" Content="{x:Static i18N:LoginWindow.Login}" />
                 </StackPanel>
             </StackPanel>
         </DockPanel>
